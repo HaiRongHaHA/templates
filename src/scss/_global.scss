@@ -1,0 +1,15 @@
+.hor-ver-venter {
+  @include horVerCenter;
+}
+
+.column-hor-ver-venter {
+  @include horVerCenter(column);
+}
+
+.hor-center {
+  @include horCenter;
+}
+
+.ver-center {
+  @include verCenter;
+}
