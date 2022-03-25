@@ -8,7 +8,8 @@ const service = axios.create({
 
 service.interceptors.request.use(config => {
   config.headers = {
-    token: ''
+    token: 'xxx',
+    'h-app-id': process.env.APP_ID
   }
   return config
 })

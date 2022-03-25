@@ -1,29 +1,15 @@
-# template-vue3
+# todo
 
-## Project setup
+## axios
 
-```
-npm install
-```
+- 请求最大次数限制
+- 防止重复请求
+- 响应日志
 
-### Compiles and hot-reloads for development
+## pinia
 
-```
-npm run serve
-```
+- pinia 企业级编码实践
 
-### Compiles and minifies for production
+## tailwindcss
 
-```
-npm run build
-```
-
-### Lints and fixes files
-
-```
-npm run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## postcss
