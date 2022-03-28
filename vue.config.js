@@ -17,7 +17,7 @@ module.exports = {
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'scss',
-      patterns: [resolve('src/scss/_entry.scss')]
+      patterns: [resolve('src/styles/_entry.scss')]
     }
   },
   chainWebpack(config) {

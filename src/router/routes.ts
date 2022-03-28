@@ -1,7 +1,7 @@
 import { RouteRecordRaw } from 'vue-router'
 
-const Home = () => import(/* webpackChunkName: "home" */ '@/views/Home.vue')
-const About = () => import(/* webpackChunkName: "about" */ '@/views/About.vue')
+const Home = () => import(/* webpackChunkName: "home" */ '@/views/Home/index.vue')
+const About = () => import(/* webpackChunkName: "about" */ '@/views/About/index.vue')
 
 const routes: Array<RouteRecordRaw> = [
   {

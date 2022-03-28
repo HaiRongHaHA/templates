@@ -66,14 +66,10 @@ module.exports = {
       { name: 'hooks' },
       { name: 'utils' },
       { name: 'styles' },
-      { name: 'init' },
+      { name: 'utils' },
       { name: 'other' }
     ],
-    [EMOJI_TYPES.fix]: [
-      { name: 'merge' },
-      { name: 'style' },
-      { name: 'bug' }
-    ]
+    [EMOJI_TYPES.fix]: [{ name: 'merge' }, { name: 'style' }, { name: 'bug' }]
   },
   messages: {
     type: '请选择提交类型(必填)',

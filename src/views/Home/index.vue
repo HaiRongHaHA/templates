@@ -1,5 +1,4 @@
 <template>
-  <img alt="Vue logo" src="../assets/logo.png" />
   <p>mid：{{ userInfo?.id }}</p>
   <p>昵称：{{ userInfo?.nickname }}</p>
   <br />
@@ -9,7 +8,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useUserStore } from '@/stores/user'
+import { useUserStore } from '@/store/modules/user'
 
 export default defineComponent({
   name: 'Home',
