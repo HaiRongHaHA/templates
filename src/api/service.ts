@@ -1,4 +1,8 @@
 import axios, { AxiosError } from 'axios'
+import axiosRetry from 'axios-retry'
+import responseHandler from './tools/responseHandler'
+import { getToken } from './tools/dealToken'
+import { addPending, removePending } from './tools/cancelRepeatRquest'
 
 const service = axios.create({
   baseURL: '/api',
@@ -6,36 +10,29 @@ const service = axios.create({
   withCredentials: true
 })
 
+axiosRetry(service, { retries: 3 })
+
 service.interceptors.request.use(config => {
   config.headers = {
-    token: 'xxx',
+    token: getToken(),
     'h-app-id': process.env.APP_ID
   }
+  addPending(config)
   return config
 })
 
 service.interceptors.response.use(
   response => {
-    const {
-      data: { code, data }
-    } = response
-
-    const successCodes = [200, 0, 1000]
-
-    if (successCodes.includes(code)) {
-      return data
-    }
-
-    console.log('请求失败状态码：', code)
-    return Promise.reject(response)
+    removePending(response)
+    return responseHandler(response)
   },
   (error: AxiosError) => {
     const { response } = error
     if (response) {
-      console.log('请求失败状态码：', response.status)
+      removePending(response)
       return Promise.reject(response.data)
     } else {
-      console.log('网络连接异常,请稍后再试!')
+      return Promise.reject(Error('网络连接异常,请稍后再试!'))
     }
   }
 )

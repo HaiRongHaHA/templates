@@ -1,6 +1,7 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
-import apis from '@/api/apis'
+import user from '@/api/modules/user'
+import { setToken, clearToken } from '@/api/tools/dealToken'
 
 interface IUserInfo {
   id: number | string
@@ -12,22 +13,30 @@ export const useUserStore = defineStore('user', () => {
 
   async function login() {
     try {
-      await apis.user.login()
+      await user.login()
+    } catch {
     } finally {
-      userInfo.value = {
-        id: 403,
-        nickname: '哈哈'
-      }
+      setToken(true)
     }
   }
 
   async function logout() {
     try {
-      await apis.user.logout()
+      await user.logout()
     } finally {
       userInfo.value = null
+      clearToken()
     }
   }
 
-  return { userInfo, login, logout }
+  async function getUserInfo() {
+    // api ……
+    const data = {
+      id: 403,
+      nickname: '哈哈'
+    }
+    userInfo.value = data
+  }
+
+  return { userInfo, login, logout, getUserInfo }
 })

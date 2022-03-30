@@ -9,8 +9,9 @@ module.exports = {
     port: 8080,
     proxy: {
       '/api': {
-        target: 'https://kunpeng.csdn.net',
-        changeOrigin: true
+        target: 'https://example.cn',
+        changeOrigin: true,
+        secure: true
       }
     }
   },
