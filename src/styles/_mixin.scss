@@ -1,3 +1,20 @@
+@mixin horVerCenter($direction: initial) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin horCenter {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin verCenter {
+  display: flex;
+  align-items: center;
+}
+
 // 单行文本省略并添加省略号
 @mixin ellipsis {
   overflow: hidden;
@@ -7,8 +24,9 @@
 
 // 多行文本省略并添加省略号
 @mixin ellipsisRows($row) {
-  display: box;
+  display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: $row;
+  -webkit-box-orient: vertical;
 }

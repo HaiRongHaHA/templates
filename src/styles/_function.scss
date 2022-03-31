@@ -1,0 +1,39 @@
+/*
+  10-100十位数像素的内外边距
+  eg:
+  ml-10 ~ ml-100
+  pt-10 ~ pt-100
+  ……
+*/
+$marginConfig: (
+  ml: 'margin-left',
+  mr: 'margin-right',
+  mt: 'margin-top',
+  mb: 'margin-bottom',
+  pl: 'padding-left',
+  pr: 'padding-right',
+  pt: 'padding-top',
+  pb: 'padding-bottom'
+);
+
+@each $item, $attr in $marginConfig {
+  @for $el from 1 to 11 {
+    .#{$item}-#{$el*10} {
+      #{$attr}: $el * 10px !important;
+    }
+  }
+}
+
+/*
+  2-4行的文本省略添加省略号
+  eg:
+  ellipsis-row-2
+  ellipsis-row-3
+  ellipsis-row-4
+  ……
+*/
+@for $el from 2 to 5 {
+  .ellipsis-row-#{$el} {
+    @include ellipsisRows($el);
+  }
+}

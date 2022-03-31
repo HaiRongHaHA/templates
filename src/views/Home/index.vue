@@ -1,15 +1,11 @@
 <template>
-  <div class="text-center py-20">
-    <p class="text-indigo-400">mid：{{ userInfo?.id }}</p>
-    <p class="text-green-400">昵称：{{ userInfo?.nickname }}</p>
-    <br />
-    <button
-      type="button"
-      class="bg-pink-400 hover:bg-pink-300 text-white px-4 py-1 rounded-sm"
-      @click="logout"
-    >
-      退出
-    </button>
+  <div class="text-center pt-20">
+    <p>mid：{{ userInfo?.id }}</p>
+    <p>昵称：{{ userInfo?.nickname }}</p>
+    <p class="ellipsis-row-3">
+      demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$
+    </p>
+    <button class="mt-10" type="button" @click="logout">退出</button>
   </div>
 </template>
 
