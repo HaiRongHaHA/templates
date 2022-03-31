@@ -32,8 +32,7 @@ module.exports = {
     plugins: [
       new webpack.DefinePlugin({
         'process.env': {
-          VUE_ENV: JSON.stringify(process.env.VUE_ENV),
-          APP_ID: JSON.stringify('110')
+          VUE_ENV: JSON.stringify(process.env.VUE_ENV)
         }
       })
     ]

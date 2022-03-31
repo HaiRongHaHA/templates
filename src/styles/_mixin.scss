@@ -30,3 +30,60 @@
   -webkit-line-clamp: $row;
   -webkit-box-orient: vertical;
 }
+
+// ios安全距离
+@mixin iphoneX-footer() {
+  [data-dpr='2'] & {
+    @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
+      //iphoneXR
+      padding-bottom: calc(env(safe-area-inset-bottom) * 2);
+    }
+  }
+
+  [data-dpr='3'] & {
+    @media only screen and (-webkit-device-pixel-ratio: 3) {
+      //iphone X Xs XsMax
+      padding-bottom: calc(env(safe-area-inset-bottom) * 3);
+    }
+  }
+}
+
+// 1PX border解决方案
+@mixin onePxBorder($border, $value, $borderRadiusVal: 0) {
+  & {
+    position: relative;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    pointer-events: none; // pointer-events: none 的作用是让元素实体 “虚化”。点击事件穿透这个元素
+    content: '';
+
+    /* prettier-ignore */
+    border-radius: $borderRadiusVal;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+    #{$border}: $value;
+  }
+}
+
+//禁止选中文字
+@mixin userSelect() {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+// 背景图片
+@mixin backgroundImg($url, $size: contain) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-size: $size;
+}

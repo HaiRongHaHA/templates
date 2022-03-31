@@ -1,12 +1,18 @@
 <template>
-  <div class="text-center pt-20">
+  <div class="home-wrap">
     <p>mid：{{ userInfo?.id }}</p>
     <p>昵称：{{ userInfo?.nickname }}</p>
-    <p class="ellipsis-row-3">
-      demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$demo$$
-    </p>
-    <button class="mt-10" type="button" @click="logout">退出</button>
+    <br />
+    <div
+      class="flex-hor-ver-center mt-10 home-wrap__button"
+      type="button"
+      @click="logout"
+    >
+      退出
+    </div>
   </div>
+
+  <VanButton type="primary">主要按钮</VanButton>
 </template>
 
 <script lang="ts">
@@ -37,3 +43,19 @@ export default defineComponent({
   }
 })
 </script>
+<style lang="scss" scoped>
+.home-wrap {
+  padding: 40px;
+  font-size: 28px;
+}
+
+.home-wrap__button {
+  width: 140px;
+  height: 48px;
+  margin-top: 8px;
+  font-size: 30px;
+  color: #fff;
+  background-color: rgb(26, 213, 247);
+  transform: scale(1);
+}
+</style>

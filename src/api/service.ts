@@ -3,6 +3,7 @@ import axiosRetry from 'axios-retry'
 import responseHandler from './tools/responseHandler'
 import { getToken } from './tools/dealToken'
 import { addPending, removePending } from './tools/cancelRepeatRquest'
+import { Toast } from 'vant'
 
 const service = axios.create({
   baseURL: '/api',
@@ -14,8 +15,7 @@ axiosRetry(service, { retries: 3 })
 
 service.interceptors.request.use(config => {
   config.headers = {
-    token: getToken(),
-    'h-app-id': process.env.APP_ID
+    token: getToken()
   }
   addPending(config)
   return config
@@ -32,6 +32,7 @@ service.interceptors.response.use(
       removePending(response)
       return Promise.reject(response.data)
     } else {
+      Toast('网络连接异常,请稍后再试!')
       return Promise.reject(Error('网络连接异常,请稍后再试!'))
     }
   }

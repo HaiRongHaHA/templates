@@ -1,5 +1,6 @@
 import { AxiosResponse } from 'axios'
 import { clearToken } from './dealToken'
+import { Toast } from 'vant'
 
 const NOT_AUTH_CODE = [401]
 
@@ -11,7 +12,9 @@ interface IResponseData {
   data: any
 }
 
-export default function ResponseStatusCallback(response: AxiosResponse<IResponseData>) {
+export default function ResponseStatusCallback(
+  response: AxiosResponse<IResponseData>
+) {
   const {
     data: { code, msg, data },
     config: { errorCustom }
@@ -30,8 +33,7 @@ export default function ResponseStatusCallback(response: AxiosResponse<IResponse
   }
 
   if (!errorCustom) {
-    //   // Toast(msg) // 提示
-    console.log(msg)
+    Toast(msg)
   }
 
   return Promise.reject(response.data)

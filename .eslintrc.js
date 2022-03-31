@@ -27,6 +27,35 @@ module.exports = {
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off'
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+
+    // vue
+    'vue/attribute-hyphenation': ['error'],
+    'vue/max-attributes-per-line': [
+      'error',
+      {
+        singleline: 2,
+        multiline: {
+          max: 1,
+          allowFirstLine: false
+        }
+      }
+    ],
+    'vue/component-name-in-template-casing': [
+      'error',
+      'PascalCase',
+      {
+        registeredComponentsOnly: false,
+        ignores: [
+          // "/^van-/"
+        ]
+      }
+    ],
+    'vue/component-tags-order': [
+      'error',
+      {
+        order: ['template', 'script', 'style']
+      }
+    ]
   }
 }
