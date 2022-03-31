@@ -7,12 +7,13 @@ module.exports = {
     'plugin:vue/vue3-essential',
     '@vue/standard',
     '@vue/typescript/recommended',
-    'prettier'
+    'plugin:prettier/recommended'
   ],
   parserOptions: {
     ecmaVersion: 2020
   },
   rules: {
+    'prettier/prettier': 'error',
     // typescript-eslint
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
@@ -31,16 +32,16 @@ module.exports = {
 
     // vue
     'vue/attribute-hyphenation': ['error'],
-    'vue/max-attributes-per-line': [
-      'error',
-      {
-        singleline: 2,
-        multiline: {
-          max: 1,
-          allowFirstLine: false
-        }
-      }
-    ],
+    // 'vue/max-attributes-per-line': [
+    //   'error',
+    //   {
+    //     singleline: 2,
+    //     multiline: {
+    //       max: 1,
+    //       allowFirstLine: false
+    //     }
+    //   }
+    // ],
     'vue/component-name-in-template-casing': [
       'error',
       'PascalCase',

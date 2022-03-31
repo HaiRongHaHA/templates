@@ -3,11 +3,7 @@
     <p>mid：{{ userInfo?.id }}</p>
     <p>昵称：{{ userInfo?.nickname }}</p>
     <br />
-    <div
-      class="flex-hor-ver-center mt-10 home-wrap__button"
-      type="button"
-      @click="logout"
-    >
+    <div class="flex-hor-ver-center mt-10 home-wrap__button" type="button" @click="logout">
       退出
     </div>
   </div>
